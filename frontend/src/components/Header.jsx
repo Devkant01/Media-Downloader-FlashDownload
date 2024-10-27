@@ -22,7 +22,7 @@ function Header() {
         <header className="sticky w-screen h-max top-0 py-3 px-8 flex justify-between items-center border-b-[1px] border-gray-400 bg-[var(--bg-color)] z-50">
             <div>
                 <a href="/">
-                    <img src="../../public/icon.png" alt="logo.png" className="w-12" title="Flash Download" />
+                    <img src="/icon.png" alt="logo.png" className="w-12" title="Flash Download" />
                 </a>
             </div>
 

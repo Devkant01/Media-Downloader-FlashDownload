@@ -28,7 +28,7 @@ function Hero() {
     }
 
     return (
-        <main className={`sticky ${isDark ? "bg-[url('../../public/bgcW.png')]" : "bg-[url('../../public/bgcB.png')]"} top-[70px] h-screen w-full grid place-content-center bg-no-repeat bg-cover bg-center pb-10 z-20`}>
+        <main className={`sticky ${isDark ? "bg-[url('/bgcW.png')]" : "bg-[url('/bgcB.png')]"} top-[70px] h-screen w-full grid place-content-center bg-no-repeat bg-cover bg-center pb-10 z-20`}>
             <h1 className="text-2xl md:text-6xl text-center mb-10 md:mb-16 font-extrabold bg-gradient-to-r from-pink-600 to-orange-500 bg-clip-text text-transparent" style={{ fontFamily: ' sans-serif' }}>FLASH DOWNLOAD</h1>
             <div
                 className={`border-[var(--border-color)] w-full flex justify-center items-center border-8 rounded-full py-1 pl-2 pr-1 gap-3 mb-8 md:mb-10 z-10 cursor-text`} >
