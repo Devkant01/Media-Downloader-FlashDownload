@@ -5,7 +5,7 @@ const cors = require("cors");
 const PORT = 3000;
 const app = new express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors());
 app.use(express.json());
 app.use('/flash-download', rootRouter);
 
