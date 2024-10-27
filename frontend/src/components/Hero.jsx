@@ -11,7 +11,7 @@ function Hero() {
     async function downloadHandler(event) {
         event.preventDefault();
         setLoading(true);
-        const res = await fetch('http://localhost:3000/flash-download/user/show', {
+        const res = await fetch('https://media-downloader-flashdownload.onrender.com/flash-download/user/show', {
             method: 'POST',
             body: JSON.stringify({url:url, site:"youtube"}),
             headers: {
