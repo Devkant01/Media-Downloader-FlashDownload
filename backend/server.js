@@ -5,7 +5,7 @@ const cors = require("cors");
 const PORT = 3000;
 const app = new express();
 
-app.use(cors());
+app.use(cors({ origin: 'https://flashdownload.onrender.com' }));
 app.use(express.json());
 app.use('/flash-download', rootRouter);
 
