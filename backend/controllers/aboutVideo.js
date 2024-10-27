@@ -27,6 +27,7 @@ async function aboutVideo(req, res, next) {
             //next(); //don't call next() after sending response
         }
     } catch (error) {
+        console.error("Error from youtube-dl-exec:", error);
         res.json({ msg: "Invalid link or try changing site like instagram, youtube or whatever your link from" });
     }
 }
