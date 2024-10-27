@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike+Angular&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); */
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --bg-color: #fff;
+}
+
+.dark {
+    --bg-color: #1a202c;
+    --bg-color-hover: #2d3748;
+    --text-color: #e2e8f0;
+    --border-color: #f56565;
+    --border-bg-color: #2d3748;
+    --accent-color: #f56565;
+    --accent-color-hover: #ed8936;
+    --accent-color-2: #38b2ac;
+}
+
+.light {
+    --bg-color: #fff;
+    --bg-color-hover: #edf2f7;
+    --text-color: #2d3748;
+    --border-color: #ed8936;
+    --border-bg-color: #e2e8f0;
+    --accent-color: #3182ce;
+    --accent-color-hover: #63b3ed;
+    --accent-color-2: #2b6cb0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Montserrat", sans-serif;
+}
+
