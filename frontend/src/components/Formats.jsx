@@ -14,7 +14,7 @@ function Formats() {
         const fetchAndDownloadVideo = async () => {
             try {
                 setLoading(true);
-                const res = await fetch("https://media-downloader-flashdownload.onrender.com/flash-download/user/download", {
+                const res = await fetch("http://localhost:3000/flash-download/user/download", {
                     method: 'POST',
                     body: JSON.stringify({ url: url, site: "youtube", quality: quality.quality, format: quality.format }),
                     headers: {

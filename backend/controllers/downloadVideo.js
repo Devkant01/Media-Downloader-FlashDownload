@@ -6,39 +6,41 @@ async function downloadVideo(req, res, next) {
     const { url, quality, format } = req.body;
     const { site } = req.body || "youtube";
     const outputFilePath = path.join(__dirname, "tmp", `downloading_video.%(ext)s`);
-    
+
     try {
         // Download the video
         if (format === "video") {
             await ldl(url, {
                 output: outputFilePath,
-                format: `bestvideo[height<=${quality.replace('p', '')}]+bestaudio/best[height<=${quality.replace('p', '')}]`,
+                format: `bestvideo[height<=${quality.replace('p', '')}]`,
                 noCheckCertificates: true,
                 noWarnings: true,
-                preferFreeFormats: true,
-                addHeader: [
-                    `referer:${site}.com`,
-                    'user-agent:googlebot'
-                ]
+                preferFreeFormats: true
             });
-       
+
             console.log("Download completed");
             const videoFilePath = outputFilePath.replace('%(ext)s', 'mp4');
+
             if (fs.existsSync(outputFilePath.replace('%(ext)s', 'webm'))) {
                 fs.renameSync(outputFilePath.replace('%(ext)s', 'webm'), videoFilePath);
             }
 
-        // Send the file as a download response
-        res.download(videoFilePath, (err) => {
-            if (err) {
-                console.error("Error while downloading the file:", err);
-            }
+            // Send the file as a download response
+            if (fs.existsSync(videoFilePath)) {
+                res.download(videoFilePath, (err) => {
+                    if (err) {
+                        console.error("Error while downloading the file:--->", err);
+                        return;
+                    }
 
-            // Delete the file after download
-            fs.unlink(videoFilePath, (err) => {
-                if (err) { console.error("Error deleting file:", err); }
-            });
-        });
+                    // Delete the file after download
+                    fs.unlink(videoFilePath, (err) => {
+                        if (err) { console.error("Error deleting file:", err); }
+                    });
+                });
+            } else {
+                console.error("Error downloading video: try again");
+            }
         } else {
             await ldl(url, {
                 extractAudio: true,
@@ -50,6 +52,7 @@ async function downloadVideo(req, res, next) {
             res.download(audioFilePath, (err) => {
                 if (err) {
                     console.error("Error while downloading the audio file");
+                    return;
                 }
                 fs.unlink(audioFilePath, (err) => {
                     if (err) { console.error("Error while deleting audio file") }
