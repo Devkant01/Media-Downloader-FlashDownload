@@ -6,7 +6,6 @@ import Support from "./components/Support";
 import Loading from "./components/Loading";
 import { useRecoilValue } from "recoil";
 import { Loader } from "./components/Atom";
-import Formats from "./components/Formats";
 
 export default function App() {
   const isLoading = useRecoilValue(Loader);
@@ -21,7 +20,6 @@ export default function App() {
         <Features />
         <Support />
       </main>
-      <Formats />
     </div>
   )
 }

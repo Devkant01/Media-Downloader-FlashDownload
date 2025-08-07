@@ -5,6 +5,12 @@ const fs = require("fs");
 async function downloadVideo(req, res, next) {
     const { url, quality, format } = req.body;
     const { site } = req.body || "youtube";
+
+    const tmpDir = path.join(__dirname, "tmp");
+    if (!fs.existsSync(tmpDir)) {
+        fs.mkdirSync(tmpDir);
+    }
+
     const outputFilePath = path.join(__dirname, "tmp", `downloading_video.%(ext)s`);
 
     try {

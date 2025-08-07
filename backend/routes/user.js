@@ -4,6 +4,10 @@ const downloadVideo = require("../controllers/downloadVideo");
 
 const userRouter = express.Router();
 
+userRouter.get('/', (req, res) => {
+    res.send("hi from user.js");
+})
+
 // Route for "/flash-download/user/show"
 userRouter.post('/show', aboutVideo); 
 
