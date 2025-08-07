@@ -55,7 +55,6 @@ function Formats() {
                 a.remove();
                 window.URL.revokeObjectURL(downloadUrl);
             } catch (error) {
-                console.error("Something went wrong during download:", error);
                 alert("Unexpected error occurred. Please try again.");
             } finally {
                 setLoading(false);
